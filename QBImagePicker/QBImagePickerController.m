@@ -60,9 +60,10 @@
 
 - (void)setUpAlbumsViewController
 {
-    // Add QBAlbumsViewController as a child
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"QBImagePicker" bundle:self.assetBundle];
-    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"QBAlbumsNavigationController"];
+    QBAlbumsViewController *albumsVC = [storyboard instantiateViewControllerWithIdentifier:@"QBAlbumsViewController"];
+    // Add QBAlbumsViewController as a child
+    UINavigationController *navigationController = [((UINavigationController*)self.NavigationControllerClass) initWithRootViewController:albumsVC];
     
     [self addChildViewController:navigationController];
     
